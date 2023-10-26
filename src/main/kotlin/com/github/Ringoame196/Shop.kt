@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack
 
 class Shop {
     fun make(barrel: Barrel, player: org.bukkit.entity.Player, sign: Sign) {
-        if (player.world.name != "shop" && !player.isOp) { return }
+        if (player.world.name != "shop" && player.world.name != "Home" && !player.isOp) { return }
         val item = player.inventory.itemInMainHand
         for (i in 0 until barrel.inventory.size) {
             val barrelItem = barrel.inventory.getItem(i)
@@ -96,7 +96,7 @@ class Shop {
     private fun barrelItemRemove(barrel: Barrel, count: Int) {
         val barrelInventory = barrel.inventory
 
-        for (c in 0..count) {
+        for (c in 0 until count) {
             for (i in barrelInventory.size - 1 downTo 0) {
                 val item = barrelInventory.getItem(i)
                 if (item != null && item.type != Material.AIR) {
