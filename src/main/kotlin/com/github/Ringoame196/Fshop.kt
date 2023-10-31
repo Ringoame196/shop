@@ -28,7 +28,6 @@ class Fshop {
         val owner = name?.substring(name.indexOf("userID:") + 7)
         player.inventory.addItem(item)
         Economy().remove(player.name, price)
-        player.sendMessage(owner?.substring(0, owner.indexOf(",")))
         Economy().add(owner?.substring(0, owner.indexOf(",")) ?: return, price)
         itemFrame.remove()
         player.closeInventory()
