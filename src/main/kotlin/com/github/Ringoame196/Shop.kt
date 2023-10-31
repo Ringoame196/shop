@@ -101,6 +101,8 @@ class Shop {
                 val item = barrelInventory.getItem(i)
                 if (item != null && item.type != Material.AIR) {
                     // 最後のアイテムを1つ減らす
+                    val giveItem = item.clone()
+                    giveItem.amount = 1
                     val amount = item.amount
                     if (amount > 1) {
                         item.amount = amount - 1
